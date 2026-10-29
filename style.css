@@ -1,0 +1,250 @@
+:root {
+  --bg-color: #08090C;
+  --card-bg: #111318;
+  --card-border: #1D212B;
+  --card-hover: #161922;
+  
+  --neon-green: #00FF44;
+  --neon-glow: rgba(0, 255, 68, 0.35);
+  
+  --text-white: #FFFFFF;
+  --text-gray: #8F96A6;
+  --text-dark: #585F73;
+
+  --font-title: 'Space Grotesk', sans-serif;
+  --font-body: 'Inter', sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--bg-color);
+  font-family: var(--font-body);
+  color: var(--text-white);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30px 16px;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Brilho de Ambiente Superior (Efeito Tech) */
+.ambient-glow {
+  position: absolute;
+  top: -150px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 400px;
+  height: 350px;
+  background: radial-gradient(circle, var(--neon-glow) 0%, rgba(8,9,12,0) 70%);
+  filter: blur(80px);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.container {
+  width: 100%;
+  max-width: 440px;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Perfil */
+.profile {
+  text-align: center;
+  margin-bottom: 28px;
+}
+
+.avatar-wrapper {
+  position: relative;
+  width: 104px;
+  height: 104px;
+  margin: 0 auto 16px;
+  border-radius: 50%;
+  padding: 3px;
+  background: linear-gradient(135deg, var(--neon-green), #ffffff, #111318);
+  box-shadow: 0 0 25px var(--neon-glow);
+}
+
+.avatar {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  background-color: #000;
+  display: block;
+}
+
+.brand-title {
+  font-family: var(--font-title);
+  font-size: 26px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
+.neon-dot {
+  color: var(--neon-green);
+  text-shadow: 0 0 10px var(--neon-green);
+}
+
+.handle {
+  color: var(--neon-green);
+  font-size: 14px;
+  font-weight: 600;
+  margin-top: 4px;
+  letter-spacing: 0.5px;
+}
+
+.bio {
+  color: var(--text-gray);
+  font-size: 13px;
+  margin-top: 10px;
+  line-height: 1.5;
+}
+
+.bio span {
+  color: #c4c8d4;
+  font-size: 12px;
+}
+
+/* Links */
+.links-group {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.link-card {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  background-color: var(--card-bg);
+  border: 1px solid var(--card-border);
+  padding: 16px 18px;
+  border-radius: 14px;
+  transition: all 0.25s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.link-card:hover {
+  background-color: var(--card-hover);
+  border-color: rgba(0, 255, 68, 0.4);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4), 0 0 15px rgba(0, 255, 68, 0.15);
+}
+
+.icon-box {
+  color: var(--neon-green);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 14px;
+}
+
+.link-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.link-title {
+  color: var(--text-white);
+  font-size: 15px;
+  font-weight: 600;
+  font-family: var(--font-title);
+  letter-spacing: 0.3px;
+}
+
+.link-sub {
+  color: var(--text-gray);
+  font-size: 12px;
+  margin-top: 2px;
+}
+
+.icon-arrow {
+  color: var(--text-dark);
+  transition: transform 0.25s ease, color 0.25s ease;
+}
+
+.link-card:hover .icon-arrow {
+  transform: translateX(4px);
+  color: var(--neon-green);
+}
+
+/* Card Destacado (Lista VIP) */
+.link-card.featured {
+  background: linear-gradient(145deg, #121815, #0D1310);
+  border-color: rgba(0, 255, 68, 0.6);
+  box-shadow: 0 0 20px rgba(0, 255, 68, 0.18);
+  animation: pulse-border 2.5s infinite;
+}
+
+@keyframes pulse-border {
+  0% { box-shadow: 0 0 15px rgba(0, 255, 68, 0.15); border-color: rgba(0, 255, 68, 0.4); }
+  50% { box-shadow: 0 0 28px rgba(0, 255, 68, 0.35); border-color: rgba(0, 255, 68, 0.9); }
+  100% { box-shadow: 0 0 15px rgba(0, 255, 68, 0.15); border-color: rgba(0, 255, 68, 0.4); }
+}
+
+.badge {
+  align-self: flex-start;
+  background-color: var(--neon-green);
+  color: #000;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 2px 8px;
+  border-radius: 6px;
+  margin-bottom: 6px;
+  letter-spacing: 0.5px;
+}
+
+.link-card.featured .link-title {
+  color: #FFFFFF;
+  font-size: 16px;
+}
+
+.link-card.featured .link-sub {
+  color: #A3EBB1;
+}
+
+/* Card Desabilitado (Loja em Breve) */
+.link-card.disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  border-style: dashed;
+}
+
+.link-card.disabled:hover {
+  transform: none;
+  border-color: var(--card-border);
+  box-shadow: none;
+}
+
+.status-coming {
+  color: #E2A03F;
+}
+
+/* Rodapé */
+.footer {
+  margin-top: 36px;
+  text-align: center;
+}
+
+.footer p {
+  color: var(--text-dark);
+  font-size: 11px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-family: var(--font-title);
+}
